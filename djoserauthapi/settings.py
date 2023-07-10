@@ -178,14 +178,14 @@ SIMPLE_JWT = {
 DJOSER = {
     'LOGIN_FIELD' : 'email',
     'USER_CREATE_PASSWORD_RETYPE' : True,
-    'ACTIVATION_URL' : '/activate/{uid}/{token}',
-    'SEND_CONFIRMATION_EMAIL' : True,
+    'ACTIVATION_URL' : 'api/auth/users/activation/{uid}/{token}',
+    'SEND_ACTIVATION_EMAIL' : True,
     'SEND_CONFIRMATION_EMAIL' : True,
     'PASSWORD_CHANGED_EMAIL_CONFIRMATION' : True,
-    'PASSWORD_RESET_CONFIRM_URL' : '/password-reset/{uid}/{token}',
+    'PASSWORD_RESET_CONFIRM_URL' : 'password_reset/{uid}/{token}',
     'SET_PASSWORD_RETYPE'  : True,
     'PASSWORD_RESET_SHOW_EMAIL_NOT_FOUND' : True,
-    'TOKEN_MODEL' : None,
+    'TOKEN_MODEL' : None, #to delete user must set be none!
     'SERIALIZERS':{
         'user_create': 'account.serializers.UserCreateSerializer',
         'user': 'account.serializers.UserCreateSerializer',
