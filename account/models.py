@@ -2,6 +2,7 @@ from typing import Any
 from django.db import models
 from django.contrib.auth.models import (
                   BaseUserManager,AbstractBaseUser)
+from django.contrib.auth.models import PermissionsMixin
 
 class UserManager(BaseUserManager):
     # create and sava user with an email, name and password
@@ -30,14 +31,14 @@ class UserManager(BaseUserManager):
         return user
 
 # custum user model
-class User(AbstractBaseUser):
+class User(AbstractBaseUser,PermissionsMixin):
     email = models.EmailField(
         verbose_name='Email',
-        max_length='255',
+        max_length=255,
         unique=True,
     )
 
-    name = models.CharField(max_length='255')
+    name = models.CharField(max_length=255)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)

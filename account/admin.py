@@ -33,7 +33,6 @@ class UserModelAdmin(BaseUserAdmin):
     )
     search_fields = ('email',)
     ordering = ('email','id')
-    filter_horizontali = ()
 
 
 #regiser the new usermodeladmin
